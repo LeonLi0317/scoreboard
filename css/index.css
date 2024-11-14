@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: darkslategrey;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .menu {
+    width: 90%;
+    margin: 0.25rem;
+  }
+  /* Top bar style */
+  .scoreboard {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 90%;
+    justify-content: center;
+    position: relative;
+  }
+  .score {
+    width: 40%;
+    aspect-ratio: 4 / 5;
+    background-color: #222;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .score.small {
+    width: 10%;
+    font-size: 7rem;
+    align-self: flex-start;
+  }
+
+  .win{
+    color: yellow;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .brand {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #7dff2e;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .score {
+      font-size: 1.8rem;
+    }
+    .score.small {
+      font-size: 1.5rem;
+    }
+  }
+
+@font-face {
+  font-family: 'jf-openhuninn-2.1';
+  src: url('font/jf-openhuninn-2.1.ttf');
+}
+#offcanvasTop{
+  height: 50vh;
+}
+#repeat{
+    font-size: 3rem;
+    color: burlywood;
+}
+#repeat:hover{
+    color: gold;
+}
+.offcanvas-body .form-inline{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.offcanvas-body *{
+  font-family: 'jf-openhuninn-2.1';
+}

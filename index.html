@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Scoreboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="../css/index.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <button class="menu btn btn-secondary  text-bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">選項</button>
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasTopLabel">設定</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-inline input-group">
+        <label class="form-control input-group-text">幾分制：</label>
+        <input class="form-control score-end text-center" type="number" min="1" max="31" value="21">
+      </div>
+      <div class="form-inline input-group">
+        <label class="form-control input-group-text">DEUCE</label>
+        <div class="btn-group col-6" role="group" aria-label="Basic example">
+          <input type="radio" class="btn-check text-bg-dark" name="btnradio" id="btnradio1" autocomplete="off" checked>
+          <label class="btn btn-outline-secondary" for="btnradio1">是</label>    
+          <input type="radio" class="btn-check text-bg-dark" name="btnradio" id="btnradio2" autocomplete="off">
+          <label class="btn btn-outline-secondary " for="btnradio2">否</label>
+        </div>
+      </div>
+      <div class="form-inline input-group">
+        <label class="form-control input-group-text">幾局制：</label>
+        <input class="form-control round-end text-center" type="number" min="1" max="5" value="1">
+      </div>
+      <hr>
+      <div class="form-inline input-group">
+        <button class="btn btn-warning form-control" id="btnNEW" type="button" data-bs-dismiss="offcanvas">開起新局</button>
+      </div>
+    </div>
+  </div>
+  <div class="scoreboard">
+    <div style="position: absolute">
+      <i class="fa-solid fa-repeat" id="repeat" ></i>
+    </div>
+    <div class="score ten" id="ten-left">00</div>
+    <div class="score small red">0</div>
+    <div class="score small red">0</div>
+    <div class="score ten" id="ten-right">00</div>
+    <div class="brand">Created by Leon 2024.11.14</div>
+  </div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+  //EVENT
+  $('#btnNEW').on('click',function(){
+    NEWGAME();
+  });
+
+
+  var x = document.getElementById('ten-left');
+  var y = document.getElementById('ten-left');
+  var hammertime = new Hammer(y);
+    hammertime.on('swipeup', function(ev) {
+    console.log(ev);
+  });
+
+
+  //FN
+  function NEWGAME(){
+    $('.ten').text("00").css('color','#fff');
+    $('.small').text("0");
+
+  };
+</script>
